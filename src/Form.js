@@ -1,8 +1,9 @@
 import React from "react"
+import {v4 as uuid} from "uuid"
 
 
 function Form(props) {
-    const {setTeamList, formInput, setFormInput} = props
+    const {setTeamList, teamList, formInput, setFormInput} = props
 
     const updateForm = event => {
         setFormInput({
@@ -11,9 +12,24 @@ function Form(props) {
         })
     }
 
+    const addMember = event => {
+        event.preventDefault()
+        setTeamList([
+            ...teamList,
+            {
+                key: uuid(),
+                name: formInput.name,
+                email: formInput.email,
+                role: formInput.role
+            }
+
+        ])
+
+    }
+
 
     return (
-        <form>
+        <form onSubmit = {addMember}>
             <label htmlFor = "nameInput">Name: </label>
             <input onChange = {updateForm} type = "text" id = "nameInput" name = "name" value = {formInput.name} />
             <br/>

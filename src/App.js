@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <Form setTeamList = {setTeamList} formInput = {formInput} setFormInput = {setFormInput}/>
+      <Form setTeamList = {setTeamList} teamList = {teamList} formInput = {formInput} setFormInput = {setFormInput}/>
       <h1> Current Friends </h1>
       {teamList.map((i) => {
         return (
