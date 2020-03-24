@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {v4 as uuid} from "uuid"
 
 function App() {
+
+  const initialTeam = [{
+      id: uuid(),
+      name: "Victoria",
+      email: "topham.victoria@gmail.com",
+      role: "powerUser"
+  }, {
+      id: uuid(),
+      name: "Jason",
+      email: "idk@gmail.com",
+      role: "eater of eggs and bacon"
+  }]
+  const [teamList, setTeamList] = useState(initialTeam);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {teamList.map((i) => {
+        return (
+        <div>
+          <p>{`Name: ${i.name}`}</p>
+          <p>{`Email: ${i.email}`}</p>
+          <p>{`Role: ${i.role}`}</p>
+        </div>
+      )
+      })}
     </div>
   );
 }
