@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import {v4 as uuid} from "uuid"
+import Form from "./Form"
 
 function App() {
 
@@ -19,6 +20,8 @@ function App() {
 
   return (
     <div className="App">
+      <Form setTeamList = {setTeamList}/>
+      <h1> Current Friends </h1>
       {teamList.map((i) => {
         return (
         <div>
