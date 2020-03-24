@@ -6,21 +6,28 @@ import Form from "./Form"
 function App() {
 
   const initialTeam = [{
-      id: uuid(),
+      key: uuid(),
       name: "Victoria",
       email: "topham.victoria@gmail.com",
       role: "powerUser"
   }, {
-      id: uuid(),
+      key: uuid(),
       name: "Jason",
       email: "idk@gmail.com",
       role: "eater of eggs and bacon"
   }]
+
   const [teamList, setTeamList] = useState(initialTeam);
+  const [formInput, setFormInput] = useState({
+    key: "",
+    name: "",
+    email: "",
+    role: ""
+  })
 
   return (
     <div className="App">
-      <Form setTeamList = {setTeamList}/>
+      <Form setTeamList = {setTeamList} formInput = {formInput} setFormInput = {setFormInput}/>
       <h1> Current Friends </h1>
       {teamList.map((i) => {
         return (
